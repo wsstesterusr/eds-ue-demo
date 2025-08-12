@@ -1,4 +1,4 @@
-import { decodeBase64, htmlToElement } from '../../scripts/scripts.js';
+import { htmlToElement } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
 
@@ -17,3 +17,4 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
