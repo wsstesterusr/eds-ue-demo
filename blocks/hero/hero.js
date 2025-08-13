@@ -12,6 +12,7 @@ export default function decorate(block) {
   const img = image.querySelector('img');
   img.classList.add('d-block');
   img.classList.add('w-100');
+  console.log('image value = ' + image.innerHTML);
   console.log('img value = ' + img.innerHTML);
 
   const header = () => {
@@ -58,6 +59,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
