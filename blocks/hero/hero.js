@@ -9,7 +9,7 @@ export default function decorate(block) {
   const img3 = block?.children[4];
 
   console.log(block?.children.length);
-  console.log("total images: " + img1.length);
+  console.log("total images here: " + img1.length);
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
@@ -68,6 +68,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
