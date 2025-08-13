@@ -4,13 +4,14 @@ export default function decorate(block) {
 
   const title = block?.children[0];
   const description = block?.children[1];
-  const image = block.children[2];
+  const image = block?.children[2];
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  image.classList.add('d-block');
-  image.classList.add('w-100');
+  const img = image?.querySelector('img');
+  img.classList.add('d-block');
+  img.classList.add('w-100');
 
   const header = () => {
 
@@ -56,6 +57,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
