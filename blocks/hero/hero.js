@@ -9,6 +9,9 @@ export default function decorate(block) {
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
+  image.classList.add('d-block');
+  image.classList.add('w-100');
+
   const header = () => {
 
     return (`
@@ -53,6 +56,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
