@@ -9,11 +9,7 @@ export default function decorate(block) {
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = image.innerHTML;          // sua string
-  wrapper.querySelector('img')?.classList.add('d-block', 'w-100');
-  const htmlAtualizado = wrapper.innerHTML;   // pronto para usar
-
+  image.innerHTML.querySelector('img')?.classList.add('d-block', 'w-100');
 
   const header = () => {
 
@@ -59,6 +55,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
