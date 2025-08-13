@@ -10,7 +10,7 @@ export default function decorate(block) {
   const descriptionText = description?.textContent?.trim();
 
 
-  console.log(block.length);
+  console.log(block.children.length);
   
   const refs = block.querySelectorAll('[data-aue-prop="image"]');
   console.log(refs.length);
@@ -68,6 +68,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
