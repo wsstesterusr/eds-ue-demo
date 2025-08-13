@@ -4,33 +4,12 @@ export default function decorate(block) {
 
   const title = block?.children[0];
   const description = block?.children[1];
+  const image = block?.children[1];
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  // All reference elements for the multi-field
-  const refs = [...block.querySelectorAll('[data-aue-prop="image"]')];
-
-  // Will contain only refs where at least one <img> got a new class added
-  const finalArray = [];
-
-  refs.forEach((refEl) => {
-    // Find imgs within this ref (handles <img> and <picture>...<img>)
-    const imgs = refEl.tagName === 'IMG' ? [refEl] : [...refEl.querySelectorAll('img')];
-
-    let changed = false;
-
-    imgs.forEach((img) => {
-      const before = img.className;
-      img.classList.add('d-block', 'w-100'); // idempotent; no duplicate classes
-      if (img.className !== before) changed = true; // only mark as changed if something was added
-    });
-
-    if (changed) {
-      finalArray.push(refEl);          // push the element itself
-      // Or, if you prefer strings, use: finalArray.push(refEl.outerHTML);
-    }
-  });
+  image.querySelector('img')?.classList.add('d-block', 'w-100');
 
   const header = () => {
 
@@ -56,13 +35,13 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${finalArray[0]}
+                           ${image.innerHtml}
                         </div>
                         <div class="carousel-item">
-                           ${finalArray[0]}
+                           ${image.innerHtml}
                         </div>
                         <div class="carousel-item">
-                           ${finalArray[0]}
+                           ${image.innerHtml}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -82,6 +61,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
