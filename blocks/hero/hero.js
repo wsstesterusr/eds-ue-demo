@@ -4,19 +4,33 @@ export default function decorate(block) {
 
   const title = block?.children[0];
   const description = block?.children[1];
-  const img1 = block?.children[2];
-  const img2 = block?.children[3];
-  const img3 = block?.children[4];
-
-  console.log(block?.children.length);
-  console.log("total images here: " + img1.length);
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  img1.querySelector('img')?.classList.add('d-block', 'w-100');
-  img2.querySelector('img')?.classList.add('d-block', 'w-100');
-  img3.querySelector('img')?.classList.add('d-block', 'w-100');
+  // All reference elements for the multi-field
+  const refs = [...block.querySelectorAll('[data-aue-prop="image"]')];
+
+  // Will contain only refs where at least one <img> got a new class added
+  const finalArray = [];
+
+  refs.forEach((refEl) => {
+    // Find imgs within this ref (handles <img> and <picture>...<img>)
+    const imgs = refEl.tagName === 'IMG' ? [refEl] : [...refEl.querySelectorAll('img')];
+
+    let changed = false;
+
+    imgs.forEach((img) => {
+      const before = img.className;
+      img.classList.add('d-block', 'w-100'); // idempotent; no duplicate classes
+      if (img.className !== before) changed = true; // only mark as changed if something was added
+    });
+
+    if (changed) {
+      finalArray.push(refEl);          // push the element itself
+      // Or, if you prefer strings, use: finalArray.push(refEl.outerHTML);
+    }
+  });
 
   const header = () => {
 
@@ -42,13 +56,13 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${img1.innerHTML}
+                           ${finalArray.innerHtml}
                         </div>
                         <div class="carousel-item">
-                           ${img2.innerHTML}
+                           ${finalArray.innerHtml}
                         </div>
                         <div class="carousel-item">
-                           ${img3.innerHTML}
+                           ${finalArray.innerHtml}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -68,6 +82,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
