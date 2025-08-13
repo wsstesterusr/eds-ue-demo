@@ -37,7 +37,7 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${image.innerHTML}
+                           ${img.innerHTML}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -57,6 +57,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
