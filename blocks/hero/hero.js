@@ -9,8 +9,12 @@ export default function decorate(block) {
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  image.classList.add('d-block');
-  image.classList.add('w-100');
+  const imgElement = image.innerHTML;
+  const img = imgElement.querySelector('img');
+
+  img.classList.add('d-block');
+  img.classList.add('w-100');
+  console.log('img value = ' + img.innerHTML);
 
   const header = () => {
 
@@ -36,7 +40,7 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${image.innerHTML}
+                           ${img}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -56,6 +60,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
