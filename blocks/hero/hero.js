@@ -42,7 +42,7 @@ export default function decorate(block) {
                            ${image?.innerHTML}
                         </div>
                         <div class="carousel-item">
-                           ${image?.innerHTML}
+                           ${image2?.innerHTML}
                         </div>
                         <div class="carousel-item">
                            ${image?.innerHTML}
@@ -65,6 +65,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
