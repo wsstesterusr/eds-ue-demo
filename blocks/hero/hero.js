@@ -9,11 +9,11 @@ export default function decorate(block) {
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  const img = image.querySelector('img');
-  img.classList.add('d-block');
-  img.classList.add('w-100');
-  console.log('image value = ' + image.innerHTML);
-  console.log('img value = ' + img.innerHTML);
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = image.innerHTML;          // sua string
+  wrapper.querySelector('img')?.classList.add('d-block', 'w-100');
+  const htmlAtualizado = wrapper.innerHTML;   // pronto para usar
+
 
   const header = () => {
 
@@ -39,7 +39,7 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${img.innerHTML}
+                           ${htmlAtualizado}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -59,6 +59,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
