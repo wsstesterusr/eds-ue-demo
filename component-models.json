@@ -210,7 +210,7 @@
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Imagem",
+        "label": "Imagens",
         "multi": true
       }
     ]
