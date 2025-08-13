@@ -10,7 +10,7 @@ export default function decorate(block) {
   const descriptionText = description?.textContent?.trim();
 
   console.log(image.innerHTML);
-  image.innerHTML.querySelector('img')?.classList.add('d-block', 'w-100');
+  image.querySelector('img')?.classList.add('d-block', 'w-100');
 
   const header = () => {
 
@@ -62,6 +62,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
