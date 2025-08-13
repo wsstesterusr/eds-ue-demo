@@ -4,7 +4,7 @@ export default function decorate(block) {
 
   const title = block?.children[0];
   const description = block?.children[1];
-  const image = block?.children[1];
+  const image = block?.children[2];
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
@@ -61,6 +61,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
