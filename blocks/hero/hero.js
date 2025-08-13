@@ -2,8 +2,10 @@ import { htmlToElement } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
 
-  const title = block.children[1];
+  const title = block?.children[1];
   const text = block.children[2];
+
+  const titleText = title?.textContent?.trim();
 
   const header = () => {
 
@@ -13,7 +15,7 @@ export default function decorate(block) {
          <div class="container py-4">
             <div class="row align-items-center g-4">
                <div class="col-lg-6">
-                  <h1 class="display-5 fw-bold mb-3">${title}</h1>
+                  <h1 class="display-5 fw-bold mb-3">${titleText}</h1>
                   <p class="lead mb-4">Anuidade diferenciada, programa de pontos e benefícios exclusivos em viagens e compras.</p>
                   <div class="d-flex gap-2">
                      <a class="btn btn-light btn-lg" href="#solicitar-cartao">Peça seu cartão</a>
@@ -55,6 +57,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
