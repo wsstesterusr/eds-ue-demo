@@ -2,8 +2,9 @@ import { htmlToElement } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
 
-  const title = block?.children[1];
-  const description = block?.children[2];
+  const title = block?.children[0];
+  const description = block?.children[1];
+  const image = block.children[3];
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
@@ -11,7 +12,7 @@ export default function decorate(block) {
   const header = () => {
 
     return (`
-          <!-- Hero -->
+      <!-- Hero -->
       <header class="hero-gradient text-white py-5">
          <div class="container py-4">
             <div class="row align-items-center g-4">
@@ -32,13 +33,7 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           <img alt="Cartão de Crédito" class="d-block w-100" src="img/banner-photo-1.png"/>
-                        </div>
-                        <div class="carousel-item">
-                           <img alt="Benefícios e Recompensas" class="d-block w-100" src="img/banner-photo-2.png"/>
-                        </div>
-                        <div class="carousel-item">
-                           <img alt="Compras com Segurança" class="d-block w-100" src="img/banner-photo-3.png"/>
+                           ${image.innerHTML}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -58,6 +53,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
