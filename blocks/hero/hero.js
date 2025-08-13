@@ -2,8 +2,8 @@ import { htmlToElement } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
 
-  const title = block.children[0];
-  const text = block.children[1];
+  const title = block.children[1];
+  const text = block.children[2];
 
   const header = () => {
 
@@ -55,6 +55,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
