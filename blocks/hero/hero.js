@@ -12,8 +12,9 @@ export default function decorate(block) {
   const descriptionText = description?.textContent?.trim();
 
   firstImage.querySelector('img')?.classList.add('d-block', 'w-100');
-  secImage.querySelector('img')?.classList.add('d-block', 'w-100');
-  thirdImage.querySelector('img')?.classList.add('d-block', 'w-100');
+  console.log(block);
+  //secImage.querySelector('img')?.classList.add('d-block', 'w-100');
+  //thirdImage.querySelector('img')?.classList.add('d-block', 'w-100');
 
   const header = () => {
 
@@ -42,10 +43,10 @@ export default function decorate(block) {
                            ${firstImage.innerHTML}
                         </div>
                         <div class="carousel-item">
-                           ${secImage.innerHTML}
+                           ${firstImage.innerHTML}
                         </div>
                         <div class="carousel-item">
-                           ${thirdImage.innerHTML}
+                           ${firstImage.innerHTML}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -65,6 +66,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
