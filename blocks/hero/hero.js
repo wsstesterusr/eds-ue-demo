@@ -12,7 +12,7 @@ export default function decorate(block) {
   const descriptionText = description?.textContent?.trim();
 
   firstImage.querySelector('img')?.classList.add('d-block', 'w-100');
-  console.log(block.children);
+  console.log(block.children[]);
   //secImage.querySelector('img')?.classList.add('d-block', 'w-100');
   //thirdImage.querySelector('img')?.classList.add('d-block', 'w-100');
 
@@ -66,6 +66,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
