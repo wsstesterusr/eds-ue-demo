@@ -4,17 +4,16 @@ export default function decorate(block) {
 
   const title = block?.children[0];
   const description = block?.children[1];
-  const firstImage = block?.children[2];
-  const secImage = block?.children[3];
-  const thirdImage = block?.children[4];
+  const img1 = block?.children[2];
+  const img2 = block?.children[3];
+  const img3 = block?.children[4];
 
   const titleText = title?.textContent?.trim();
   const descriptionText = description?.textContent?.trim();
 
-  firstImage.querySelector('img')?.classList.add('d-block', 'w-100');
-  console.log(block.children[]);
-  //secImage.querySelector('img')?.classList.add('d-block', 'w-100');
-  //thirdImage.querySelector('img')?.classList.add('d-block', 'w-100');
+  img1.querySelector('img')?.classList.add('d-block', 'w-100');
+  img2.querySelector('img')?.classList.add('d-block', 'w-100');
+  img3.querySelector('img')?.classList.add('d-block', 'w-100');
 
   const header = () => {
 
@@ -40,13 +39,13 @@ export default function decorate(block) {
                      </div>
                      <div class="carousel-inner">
                         <div class="carousel-item active">
-                           ${firstImage.innerHTML}
+                           ${img1.innerHTML}
                         </div>
                         <div class="carousel-item">
-                           ${firstImage.innerHTML}
+                           ${img2.innerHTML}
                         </div>
                         <div class="carousel-item">
-                           ${firstImage.innerHTML}
+                           ${img3.innerHTML}
                         </div>
                      </div>
                      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
@@ -66,6 +65,7 @@ export default function decorate(block) {
   };
   block.innerHTML = header();
 }
+
 
 
 
