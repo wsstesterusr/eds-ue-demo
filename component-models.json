@@ -193,13 +193,6 @@
     "id": "hero",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Imagem",
-        "multi": true
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "title",
@@ -212,6 +205,13 @@
         "value": "",
         "label": "Descrição",
         "valueType": "string"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Imagem",
+        "multi": true
       }
     ]
   }
