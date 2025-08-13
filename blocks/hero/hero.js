@@ -5,40 +5,53 @@ export default function decorate(block) {
   const header = () => {
 
     return (`
-          <header class="top-bar">
-            <div class="container">
-              <a href="#" class="logo">
-                <img src="https://banco.bradesco/assets/classic/logo-bradesco-classic.svg" alt="Bradesco Logo">
-              </a>
-              <nav class="main-nav">
-                <ul>
-                  <li><a href="#">Para Você</a></li>
-                  <li><a href="#">Para Empresas</a></li>
-                  <li><a href="#">Private Bank</a></li>
-                  <li><a href="#">Ajuda</a></li>
-                </ul>
-              </nav>
-              <div class="search-box">
-                <input type="text" id="search" placeholder="Buscar no site">
-                <button id="search-btn">🔍</button>
-              </div>
+          <!-- Hero -->
+      <header class="hero-gradient text-white py-5">
+         <div class="container py-4">
+            <div class="row align-items-center g-4">
+               <div class="col-lg-6">
+                  <h1 class="display-5 fw-bold mb-3">Cartão de Crédito Bradesco</h1>
+                  <p class="lead mb-4">Anuidade diferenciada, programa de pontos e benefícios exclusivos em viagens e compras.</p>
+                  <div class="d-flex gap-2">
+                     <a class="btn btn-light btn-lg" href="#solicitar-cartao">Peça seu cartão</a>
+                     <a class="btn btn-outline-light btn-lg" data-bs-target="#modalAcessarConta" data-bs-toggle="modal" href="#">Acessar conta</a>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="carousel slide rounded-4 overflow-hidden shadow-lg" data-bs-ride="carousel" id="heroCarousel">
+                     <div class="carousel-indicators">
+                        <button aria-current="true" class="active" data-bs-slide-to="0" data-bs-target="#heroCarousel" type="button"></button>
+                        <button data-bs-slide-to="1" data-bs-target="#heroCarousel" type="button"></button>
+                        <button data-bs-slide-to="2" data-bs-target="#heroCarousel" type="button"></button>
+                     </div>
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <img alt="Cartão de Crédito" class="d-block w-100" src="img/banner-photo-1.png"/>
+                        </div>
+                        <div class="carousel-item">
+                           <img alt="Benefícios e Recompensas" class="d-block w-100" src="img/banner-photo-2.png"/>
+                        </div>
+                        <div class="carousel-item">
+                           <img alt="Compras com Segurança" class="d-block w-100" src="img/banner-photo-3.png"/>
+                        </div>
+                     </div>
+                     <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#heroCarousel" type="button">
+                     <span class="carousel-control-prev-icon"></span>
+                     <span class="visually-hidden">Anterior</span>
+                     </button>
+                     <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#heroCarousel" type="button">
+                     <span class="carousel-control-next-icon"></span>
+                     <span class="visually-hidden">Próximo</span>
+                     </button>
+                  </div>
+               </div>
             </div>
-          </header>
-        
-          <nav class="sub-nav">
-            <div class="container">
-              <ul>
-                <li><a href="#">Acessar minha conta</a></li>
-                <li><a href="#">Cartões</a></li>
-                <li><a href="#">Investimentos</a></li>
-                <li><a href="#">Seguros</a></li>
-                <li><a href="#">Crédito</a></li>
-              </ul>
-            </div>
-          </nav>
+         </div>
+      </header>
         `);
   };
   block.innerHTML = header();
 }
+
 
 
