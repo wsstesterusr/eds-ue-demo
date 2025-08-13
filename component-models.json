@@ -196,7 +196,7 @@
         "component": "reference",
         "valueType": "string",
         "name": "image",
-        "label": "Image",
+        "label": "Imagem",
         "multi": true
       },
       {
