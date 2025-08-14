@@ -196,15 +196,13 @@
         "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Título",
-        "value": ""
+        "label": "Título"
       },
       {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Descrição",
-        "valueType": "string"
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descrição"
       },
       {
         "component": "reference",

@@ -1,23 +1,24 @@
 import { htmlToElement } from '../../scripts/scripts.js';
+import { readBlockConfig } from '../../scripts/aem.js';
 
 export default function decorate(block) {
 
-  const title = block?.children[0];
-  const description = block?.children[1];
-  const image = block?.children[2];
+  const cfg = readBlockConfig(block);
+  console.log("info hero: " + cfg.title);
+  console.log("info hero: " + cfg.description);
+  console.log("info hero: " + cfg);
 
-  const titleText = title?.textContent?.trim();
-  const descriptionText = description?.textContent?.trim();
+  //const title = block?.children[0];
+  //const description = block?.children[1];
+  //const image = block?.children[2];
 
+  //const titleText = title?.textContent?.trim();
+  //const descriptionText = description?.textContent?.trim();
 
-  console.log(block.children.length);
-  
-  const refs = block.querySelectorAll('[data-aue-prop="image"]');
-  console.log(refs.length);
+  //const refs = block.querySelectorAll('[data-aue-prop="image"]');
+  //image.querySelector('img')?.classList.add('d-block', 'w-100');
 
-  console.log(image.innerHTML);
-  image.querySelector('img')?.classList.add('d-block', 'w-100');
-
+/*
   const header = () => {
 
     return (`
@@ -66,7 +67,7 @@ export default function decorate(block) {
       </header>
         `);
   };
-  block.innerHTML = header();
+  block.innerHTML = header();*/
 }
 
 
