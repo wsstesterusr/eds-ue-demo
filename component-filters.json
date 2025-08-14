@@ -40,5 +40,10 @@
       "title"
     ]
   },
-  { "id": "carrossel", "components": ["item"] }
+  { 
+    "id": "carrossel", 
+    "components": [
+      "item"
+    ] 
+  }
 ]

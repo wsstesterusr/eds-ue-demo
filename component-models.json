@@ -216,27 +216,19 @@
     ]
   },
   {
-    "id": "carrossel",
-    "fields": [
-      { "component": "input",  "valueType": "string", "name": "id",      "label": "ID do carrossel (opcional)" },
-      { "component": "input",  "valueType": "string", "name": "classes", "label": "Classes extras (opcional)" },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "ride",
-        "label": "Auto-play (data-bs-ride)",
-        "options": [
-          { "label": "Ligado (carousel)", "value": "carousel" },
-          { "label": "Desligado", "value": "" }
-        ]
-      }
-    ]
-  },
-  {
     "id": "item",
     "fields": [
-      { "component": "reference", "valueType": "string", "name": "image", "label": "Imagem", "multi": false },
-      { "component": "input",     "valueType": "string", "name": "alt",   "label": "Texto alternativo (alt)" }
+      { "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Imagem",
+        "multi": false
+      },
+      { "component": "text",
+        "valueType": "string",
+        "name": "alt",
+        "label": "Texto alternativo (alt)" 
+      }
     ]
   }
 ]
