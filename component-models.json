@@ -207,7 +207,7 @@
         "value": ""
       },
       {
-        "component": "text-area",
+        "component": "richtext",
         "name": "text",
         "value": "",
         "label": "Text",

@@ -152,7 +152,7 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "text": "<template>Welcome to AEM</template>"
+                  "text": "<script type=\"application/json\" data-field-map>\n  { \"title\": \"#meu-titulo\", \"description\": \".desc\" }\n</script>"
                 }
               }
             }
