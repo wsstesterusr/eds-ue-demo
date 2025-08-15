@@ -19,6 +19,42 @@ export default function decorate(block) {
         console.log(`#${i}`, prop, { type, label }, el);
       });
       console.groupEnd();
+
+      // 2) >>> NOVO: copiar o valor do campo "title" para o field do bloco "copyTitleField"
+      //    - Aqui estamos copiando o **conteúdo** do campo "title" (texto do elemento).
+      //    - Se você quiser copiar literalmente o **nome** do atributo (ex.: "title"),
+      //      troque a linha do 'titleValue' pela indicada no comentário abaixo.
+
+      const titleEl = block.querySelector('[data-aue-prop="title"]');
+      //const titleValue = (titleEl?.textContent || '').trim();
+      // (alternativa: copiar o valor literal do atributo data-aue-prop)
+      const titleValue = titleEl?.getAttribute('data-aue-prop') || '';
+
+      // Garante um nó “sistêmico” que o UE reconhece e persiste como propriedade do bloco:
+      // data-aue-prop="copyTitleField" (tipo texto). Mantemos invisível.
+      let sink = block.querySelector(':scope > [data-aue-prop="copyTitleField"]');
+      if (!sink) {
+        sink = document.createElement('pre');
+        sink.setAttribute('data-aue-prop', 'copyTitleField');
+        sink.setAttribute('data-aue-type', 'text');
+        block.prepend(sink);
+      }
+
+      // Só atualiza se mudou (evita updates desnecessários)
+      if (sink.textContent !== titleValue) {
+        sink.textContent = titleValue;
+
+        // Sinaliza alteração para o UE persistir a propriedade `copyTitleField`
+        try {
+          sink.setAttribute('contenteditable', 'true');
+          sink.dispatchEvent(new InputEvent('input', { bubbles: true }));
+          sink.blur();
+          sink.removeAttribute('contenteditable');
+          console.info('[UE] copyTitleField persisted:', titleValue);
+        } catch (e) {
+          console.warn('Falha ao persistir copyTitleField:', e);
+        }
+      }
     };
 
     // 1) Tenta logar imediatamente (caso as classes já estejam no <html>)
@@ -33,7 +69,6 @@ export default function decorate(block) {
     // 3) Observa mudanças na classe do <html> (caso o UE aplique depois)
     const mo = new MutationObserver(() => { if (isUE()) logAueProps(); });
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
 
   /*
   const cfg = readBlockConfig(block);
@@ -103,56 +138,3 @@ export default function decorate(block) {
   };
   block.innerHTML = header();*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

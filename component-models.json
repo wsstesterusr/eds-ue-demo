@@ -193,25 +193,22 @@
     "id": "hero",
     "fields": [
       {
-        "component": "reference",
+        "component": "text-input",
         "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description"
       },
       {
         "component": "text-input",
         "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "text-area",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string",
+        "name": "copyTitleField",
+        "label": "Copy of Title (system)",
         "hidden": true,
         "visible": false
       }
