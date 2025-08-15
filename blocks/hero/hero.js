@@ -16,14 +16,27 @@ const setDataTitle = (block, val) => {
 // 2) Integração com o UE (edição): escuta eventos e sincroniza
 const wireUEListeners = (block) => {
 
-  const isUE = document.documentElement.classList.contains('adobe-ue-edit')
-            || document.documentElement.classList.contains('adobe-ue-preview');
+  // Executa apenas quando a página estiver totalmente carregada
+  const onLoad = (fn) => {
+    if (document.readyState === 'complete') fn();
+    else window.addEventListener('load', fn, { once: true });
+  };
 
-  if (!isUE) {
-    console.log("estou fora!");
-  } else {
-    console.log("estou dentro!");
-  }
+  onLoad(() => {
+    const isUE =
+      document.documentElement.classList.contains('adobe-ue-edit') ||
+      document.documentElement.classList.contains('adobe-ue-preview');
+
+      if (!isUE) {
+        console.log("estou fora!");
+      } else {
+        console.log("estou dentro!");
+      }
+
+  });
+
+
+
 
   return;
 };
