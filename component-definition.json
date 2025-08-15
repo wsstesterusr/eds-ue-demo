@@ -152,8 +152,6 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "title": "Default title",
-                  "title_titleType": "h2"
                 }
               }
             }
