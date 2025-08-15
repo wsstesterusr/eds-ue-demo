@@ -152,9 +152,8 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "titleHidden": "Title Hidden",
                   "title": "Default title",
-                  "titleType": "template"
+                  "titleType": "h2"
                 }
               }
             }
