@@ -212,7 +212,8 @@
         "value": "",
         "label": "Text",
         "valueType": "string",
-        "hidden": true
+        "hidden": true,
+        "visible": false
       }
     ]
   },
