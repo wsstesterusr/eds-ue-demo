@@ -3,10 +3,15 @@ import { readBlockConfig } from '../../scripts/aem.js';
 
 export default function decorate(block) {
 
+
+
+
+  /*
   const cfg = readBlockConfig(block);
   console.log("info hero: " + cfg.title);
   console.log("info hero: " + cfg.description);
   console.log("info hero: " + cfg);
+  */
 
   //const title = block?.children[0];
   //const description = block?.children[1];
