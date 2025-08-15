@@ -154,7 +154,7 @@
                   "model": "hero",
                   "titleHidden": "Title Hidden",
                   "title": "Default title",
-                  "titleText": "title"
+                  "titleType": "template"
                 }
               }
             }
