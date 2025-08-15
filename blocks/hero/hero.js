@@ -1,10 +1,39 @@
 import { htmlToElement } from '../../scripts/scripts.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
+// 1) Captura estrutural (publicado): primeira linha/duas colunas
+const getTitleFromStructure = (block) => {
+  const el = block.querySelector(':scope > div:nth-child(1) > div:nth-child(1)')
+           || block.querySelector('h1,h2,h3,h4,h5,h6');
+  return (el?.textContent || '').trim();
+};
+
+const setDataTitle = (block, val) => {
+  if (val) block.dataset.title = val;
+  else delete block.dataset.title;
+};
+
+// 2) Integração com o UE (edição): escuta eventos e sincroniza
+const wireUEListeners = (block) => {
+
+  const isUE = document.documentElement.classList.contains('adobe-ue-edit')
+            || document.documentElement.classList.contains('adobe-ue-preview');
+
+  if (!isUE) {
+    console.log("estou fora!");
+  } else {
+    console.log("estou dentro!");
+  }
+
+  return;
+};
+
 export default function decorate(block) {
 
+  // Editor: sincroniza enquanto o autor edita
+  wireUEListeners(block);
 
-
+  console.log("Hi!");
 
   /*
   const cfg = readBlockConfig(block);
