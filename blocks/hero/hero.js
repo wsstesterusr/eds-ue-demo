@@ -1,52 +1,39 @@
 import { htmlToElement } from '../../scripts/scripts.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 
-// 1) Captura estrutural (publicado): primeira linha/duas colunas
-const getTitleFromStructure = (block) => {
-  const el = block.querySelector(':scope > div:nth-child(1) > div:nth-child(1)')
-           || block.querySelector('h1,h2,h3,h4,h5,h6');
-  return (el?.textContent || '').trim();
-};
+export default function decorate(block) {
 
-const setDataTitle = (block, val) => {
-  if (val) block.dataset.title = val;
-  else delete block.dataset.title;
-};
-
-// 2) Integração com o UE (edição): escuta eventos e sincroniza
-const wireUEListeners = (block) => {
-
-  // Executa apenas quando a página estiver totalmente carregada
-  const onLoad = (fn) => {
-    if (document.readyState === 'complete') fn();
-    else window.addEventListener('load', fn, { once: true });
-  };
-
-  onLoad(() => {
-    const isUE =
+  const isUE = () =>
       document.documentElement.classList.contains('adobe-ue-edit') ||
       document.documentElement.classList.contains('adobe-ue-preview');
 
-      if (!isUE) {
-        console.log("estou fora!");
-      } else {
-        console.log("estou dentro!");
-      }
+    const logAueProps = () => {
+      if (!isUE()) return;
+      const els = [...block.querySelectorAll('[data-aue-prop]')];
+      console.groupCollapsed(`[UE] data-aue-prop (${els.length})`);
+      els.forEach((el, i) => {
+        const prop = el.getAttribute('data-aue-prop');
+        // opcional: também pegar tipo/label
+        const type = el.getAttribute('data-aue-type');
+        const label = el.getAttribute('data-aue-label');
+        console.log(`#${i}`, prop, { type, label }, el);
+      });
+      console.groupEnd();
+    };
 
-  });
+    // 1) Tenta logar imediatamente (caso as classes já estejam no <html>)
+    if (isUE()) logAueProps();
 
+    // 2) Escuta eventos do UE (quando o editor inicializa / altera conteúdo)
+    const handler = () => logAueProps();
+    ['aue:initialized', 'aue:content-details', 'aue:content-update'].forEach((evt) => {
+      document.body.addEventListener(evt, handler, { passive: true });
+    });
 
+    // 3) Observa mudanças na classe do <html> (caso o UE aplique depois)
+    const mo = new MutationObserver(() => { if (isUE()) logAueProps(); });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-
-  return;
-};
-
-export default function decorate(block) {
-
-  // Editor: sincroniza enquanto o autor edita
-  wireUEListeners(block);
-
-  console.log("Hi!");
 
   /*
   const cfg = readBlockConfig(block);
