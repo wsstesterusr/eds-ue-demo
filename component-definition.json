@@ -152,7 +152,7 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "text": "<h1>Welcome to AEM</h1>"
+                  "text": "<template>Welcome to AEM</template>"
                 }
               }
             }
