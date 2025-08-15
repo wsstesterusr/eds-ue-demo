@@ -152,8 +152,9 @@
                 "template": {
                   "name": "Hero",
                   "model": "hero",
-                  "titleHidden": "titleId",
-                  "title": "Default title"
+                  "titleHidden": "Title Hidden",
+                  "title": "Default title",
+                  "titleText": "title"
                 }
               }
             }

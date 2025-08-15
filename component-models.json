@@ -196,7 +196,15 @@
         "component": "text",
         "valueType": "string",
         "name": "titleHidden",
-        "label": "Título Oculto",
+        "label": "Título Oculto 1",
+        "readOnly": true,
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "titleText",
+        "label": "titleId",
         "readOnly": true,
         "hidden": true
       },
